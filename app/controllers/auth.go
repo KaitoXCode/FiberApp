@@ -2,6 +2,7 @@ package controllers
 
 import (
 	services "github.com/KaitoXCode/fiberApp/app/services"
+	"go.uber.org/zap"
 
 	fiber "github.com/gofiber/fiber/v2"
 )
@@ -28,6 +29,10 @@ func Login(c *fiber.Ctx) error {
 	password, userExists := users[input.Username]
 
 	if !userExists || password != input.Password {
+		services.Logger.Info(
+			"Unauthorized access attempt",
+			zap.String("username", input.Username),
+		)
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"error": "Unauthorized",
 		})
