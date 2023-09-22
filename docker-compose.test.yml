@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  # Fiber API service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/go/src/app
+      - go-mod-cache:/go/pkg/mod
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mariadb
+
+  # MariaDB service
+  mariadb:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=mytestpassword
+      - MYSQL_DATABASE=mytestdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+volumes:
+  mariadb-data:
+  go-mod-cache:

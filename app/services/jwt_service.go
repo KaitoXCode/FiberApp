@@ -9,7 +9,7 @@ import (
 var jwtSecret = []byte("secret_key")
 
 func GenerateToken(userID uint) (string, error) {
-	// Generate initial token
+	// Generte initial token
 	token := jwt.New(jwt.SigningMethodHS256)
 
 	// Define claims

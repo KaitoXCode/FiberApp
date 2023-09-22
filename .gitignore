@@ -3,6 +3,7 @@
 #
 fiberApp
 public/logs/app.log
+.env
 # Binaries for programs and plugins
 *.exe
 *.exe~

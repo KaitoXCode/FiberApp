@@ -56,3 +56,22 @@ main.go
    - **main.go**: This is the entry point for your application. It sets up the
      Fiber app instance, connects to the database, loads middlewares,
      initializes routes, and starts the server.
+
+3. Local Environment:
+
+   - **GO**: Ensure go is installed by running `go --version`.
+
+   - **MOD**: run `go mod download` for dependencies.
+
+   - **.env**: Environment file which should include the following environment
+     variables ['DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DB_NAME'].
+
+4. Docker Environment:
+
+   - **TEST**: run `docker compose -f docker-compose.test.yml`, to launch the
+     environment. This includes a mariadb service which can be used to test
+     reads and writes to the database.
+
+   - **DEVELOPMENT**: TODO
+
+   - **PRODUCTION**: TODO
