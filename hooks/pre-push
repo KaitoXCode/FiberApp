@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Run tests from the ./tests/ directory
+go test -v ./tests/...
+
+if [ $? -ne 0 ]; then
+    echo "Tests failed in ./tests/ directory! Fix them before pushing."
+    exit 1
+fi
+
